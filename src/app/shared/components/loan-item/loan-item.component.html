@@ -1,11 +1,11 @@
 <div class="card-wrapper">
   <div class="card">
     <div class="card__title">{{ loan.title }}</div>
-    <div class="card__ditails">
-      <div class="card__amount">Amount: {{ loan.amount }}</div>
-      <div class="card__amount">Annualised return: {{ loan.annualised_return }}</div>
-      <div class="card__amount">Available: {{ loan.available }}</div>
+    <div class="card__details">
+      <div>Amount: {{ loan.amount }}</div>
+      <div>Annualised return: {{ loan.annualised_return }}</div>
+      <div>Available: {{ loan.available }}</div>
     </div>
-    <button mat-raised-button>Invest</button>
+    <button mat-raised-button class="btn">Invest</button>
   </div>
 </div>

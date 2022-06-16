@@ -5,4 +5,8 @@
   <div *ngFor="let loan of loans">
     <app-loan-item [loan]=loan></app-loan-item>
   </div>
+  <div class="total">
+    <div class="total__text">Total amount available for investment: </div>
+    <div class="total__amount">${{ total | number: '.0-2'}}</div>
+  </div>
 </div>
