@@ -20,7 +20,7 @@ export class PopupComponent implements OnInit {
   ngOnInit(): void {
     let available = parseFloat(this.data.available.replace(/,/g, ''))
     this.investForm = this.fb.group({
-      amount: ['', [Validators.min(0), Validators.max(available)]],
+      amount: ['', [Validators.required, Validators.min(0), Validators.max(available)]],
     });
 
 
