@@ -9,12 +9,14 @@ import { PopupComponent } from './shared/components/popup/popup.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatInputModule} from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TimeLeftComponent } from './shared/components/time-left/time-left.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoanItemComponent,
-    PopupComponent
+    PopupComponent,
+    TimeLeftComponent
   ],
   imports: [
     BrowserModule,

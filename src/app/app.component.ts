@@ -12,6 +12,8 @@ export class AppComponent implements OnInit {
   loans: ILoanItem[] = loansData;
   total: number = 0;
 
+  
+
   ngOnInit(): void {
     this.loans.forEach( el => {
       this.total += parseFloat(el.available.replace(/,/g, ''))})

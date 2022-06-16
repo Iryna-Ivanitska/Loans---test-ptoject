@@ -4,17 +4,18 @@
   <div class="loan">
     <div class="loan__title">{{ data.title }}</div>
     <div>Amount available: ${{ data.available }}</div>
-    <div>Loan ends in: {{ data.term_remaining }}</div>
+    <div>Loan ends in: <app-time-left [time]=data.term_remaining></app-time-left></div>
   </div>
   <h2 class="loan__title">Investment amount</h2>
   <form class="form" [formGroup]="investForm">
       <div class="input-block">
       <mat-form-field appearance="outline">
         <mat-label>Amount</mat-label>
-        <input class="input" placeholder="Amount" formControlName="amount" type="number">
+        <input matInput placeholder="Amount" formControlName="amount" type="number" >
+        <mat-error>Incorrect amount</mat-error>
       </mat-form-field>
       <div mat-dialog-action >
-        <button type="button" mat-raised-button class="btn" >Invest</button>
+        <button type="button" mat-raised-button class="btn" (click)="invest()">Invest</button>
       </div>
     </div>
     </form>

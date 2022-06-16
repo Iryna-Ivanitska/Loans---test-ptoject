@@ -1,6 +1,6 @@
 import { Inject } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ILoanItem } from 'src/app/interfaces/loan.interface';
 
@@ -10,16 +10,20 @@ import { ILoanItem } from 'src/app/interfaces/loan.interface';
   styleUrls: ['./popup.component.scss']
 })
 export class PopupComponent implements OnInit {
-  public investForm: FormGroup;
+  investForm: FormGroup;
+  available = 0;
+
 
   constructor(public dialogRef: MatDialogRef<PopupComponent>,
               @Inject(MAT_DIALOG_DATA) public data: ILoanItem,
               private fb: FormBuilder) { }
 
   ngOnInit(): void {
+    this.available = parseFloat(this.data.available.replace(/,/g, ''))
     this.investForm = this.fb.group({
-      amount: ['', [this.numberValidator]],
+      amount: ['', [Validators.min(0), Validators.max(this.available)]],
     });
+
 
   }
 
@@ -27,13 +31,8 @@ export class PopupComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  numberValidator(control: FormControl) {
-    if (isNaN(control?.value)) {
-      return {
-        number: true
-      }
-    }
-    return null;
+  invest() {
+    this.dialogRef.close(this.investForm.value.amount);
   }
 
 }

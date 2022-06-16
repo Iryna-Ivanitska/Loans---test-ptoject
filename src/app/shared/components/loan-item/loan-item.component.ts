@@ -10,11 +10,11 @@ import { ILoanItem } from './../../../interfaces/loan.interface';
 })
 export class LoanItemComponent implements OnInit {
   @Input() loan: ILoanItem;
+  invested = false;
 
   constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
-    console.log(this.loan)
   }
 
   openDialog() {
@@ -25,7 +25,11 @@ export class LoanItemComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
+      if (result) {
+        this.invested = true;
+        let newAvailable = (Number(this.loan.available.replace(/,/g, '')) - result).toString();
+        this.loan.available = newAvailable.slice(0,2) + ',' + newAvailable.slice(-3)
+      }
     });
   }
 
