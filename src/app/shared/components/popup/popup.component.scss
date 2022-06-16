@@ -1,0 +1,48 @@
+@import './../../mixins/mixins.scss';
+
+.popup {
+  padding: 20px;
+}
+
+.close {
+  width: 32px;
+  height: 32px;
+  margin-left: auto;
+  background: url('./../../../../assets/svg/close.svg') no-repeat;
+  background-size: cover;
+  cursor: pointer;
+}
+
+.header {
+  @include font(24px, 600, 28px);
+}
+
+.loan {
+  @include font(20px, 400, 30px);
+
+  &__title {
+    font-weight: 500;
+    margin: 32px 0;
+  }
+}
+
+.input-block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.input {
+  text-align: right;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  width: 328px;
+  padding: 16px 32px;
+  @include font(20px, 400, 24px);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
