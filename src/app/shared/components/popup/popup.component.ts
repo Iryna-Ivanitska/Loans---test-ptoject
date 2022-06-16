@@ -11,7 +11,6 @@ import { ILoanItem } from 'src/app/interfaces/loan.interface';
 })
 export class PopupComponent implements OnInit {
   investForm: FormGroup;
-  available = 0;
 
 
   constructor(public dialogRef: MatDialogRef<PopupComponent>,
@@ -19,9 +18,9 @@ export class PopupComponent implements OnInit {
               private fb: FormBuilder) { }
 
   ngOnInit(): void {
-    this.available = parseFloat(this.data.available.replace(/,/g, ''))
+    let available = parseFloat(this.data.available.replace(/,/g, ''))
     this.investForm = this.fb.group({
-      amount: ['', [Validators.min(0), Validators.max(this.available)]],
+      amount: ['', [Validators.min(0), Validators.max(available)]],
     });
 
 
@@ -32,7 +31,7 @@ export class PopupComponent implements OnInit {
   }
 
   invest() {
-    this.dialogRef.close(this.investForm.value.amount);
+    if (this.investForm.valid) this.dialogRef.close(this.investForm.value.amount);
   }
 
 }

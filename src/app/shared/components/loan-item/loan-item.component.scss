@@ -23,3 +23,10 @@
     margin-top: 10px;
   }
 }
+
+.invested {
+  @include font(16px, 600, 20px);
+  color: #51A571;
+  text-align: right;
+  margin-bottom: 13px;
+}
