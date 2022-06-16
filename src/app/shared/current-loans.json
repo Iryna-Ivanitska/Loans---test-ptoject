@@ -1,5 +1,4 @@
-{
-  "loans": [
+[
     {
       "id": "1",
       "title": "Voluptate et sed tempora qui quisquam.",
@@ -31,4 +30,3 @@
       "amount": "85,754"
     }
   ]
-}

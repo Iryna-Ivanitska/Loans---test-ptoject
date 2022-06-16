@@ -1,1 +1,26 @@
-/* You can add global styles to this file, and also import other style files */
+
+:root {
+  --primary: #303247;
+  --secondary: #F6E308;
+  --border: #3032471a;
+
+}
+
+* {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: var(--primary);
+}
+
+.container {
+  width: 1440px;
+  margin: 0 auto;
+}
+
+.wrapper {
+  padding: 32px 65px;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

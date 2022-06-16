@@ -1,0 +1,19 @@
+@import './../../mixins/mixins.scss';
+
+.card-wrapper {
+  padding: 32px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  margin-bottom: 32px;
+}
+
+.card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  &__title {
+    @include font(25px, 600, 30px);
+    width: 100%;
+  }
+}

@@ -1,0 +1,9 @@
+@import './shared/mixins/mixins.scss';
+
+.title {
+  @include font(30px, 600, 36px);
+}
+
+.header {
+  border-bottom: 1px solid var(--border);
+}
