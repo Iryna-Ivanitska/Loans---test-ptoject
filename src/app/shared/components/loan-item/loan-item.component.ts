@@ -30,7 +30,7 @@ export class LoanItemComponent implements OnInit {
         this.invested = true;
         let newAvailable = (Number(this.loan.available.replace(/,/g, '')) - result).toString();
         let newAmount = (Number(this.loan.amount.replace(/,/g, '')) + result).toString();
-        this.loan.available = newAvailable.slice(0,2) + ',' + newAvailable.slice(-3)
+        this.loan.available = newAvailable == '0,0' ? newAvailable.slice(0,2) + ',' + newAvailable.slice(-3) : '0'
         this.loan.amount = newAmount.slice(0,2) + ',' + newAmount.slice(-3)
         this.inputValue.emit(result)
       }
